@@ -1,20 +1,21 @@
+package figures;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rectangle extends Figyre{
+public class Square extends Figyre {
     public ArrayList<List<Integer>> Points;
     public boolean isFigureCorrect = true;
 
-    public Rectangle(ArrayList<List<Integer>> coordinates) {
+    public Square(ArrayList<List<Integer>> coordinates) {
         this.Points = coordinates;
     }
 
-    private boolean isRectangleCorrect() {
-        double lastDist, curDist, added;
+    private boolean isSquareCorrect() {
+        double lastDist, curDist;
         double x = Math.pow(this.Points.get(1).get(0) - this.Points.get(0).get(0), 2);
         double y = Math.pow(this.Points.get(1).get(1) - this.Points.get(0).get(1), 2);
         lastDist = Math.sqrt(x + y);
-        added = lastDist;
         for (int k = 0; k < 4; ++k) { // Перебор точек
             if (k != 3) {
                 double X = Math.pow(this.Points.get(k + 1).get(0) - this.Points.get(k).get(0), 2);
@@ -26,9 +27,6 @@ public class Rectangle extends Figyre{
                 curDist = Math.sqrt(X + Y);
             }
             if (curDist != lastDist) {
-                added = curDist;
-            }
-            if (curDist != lastDist && curDist != added && added != lastDist) {
                 return false;
             }
             lastDist = curDist;
@@ -38,7 +36,7 @@ public class Rectangle extends Figyre{
 
     @Override
     public void isCoordinatesCorrect() {
-        if (Points.size() != 4 || !isRectangleCorrect()) {
+        if (Points.size() != 4 || !isSquareCorrect()) {
             System.out.println("The figyre is invalid");
             this.isFigureCorrect = false;
         } else {
@@ -51,9 +49,7 @@ public class Rectangle extends Figyre{
         if (this.isFigureCorrect) {
             double X = Math.pow(this.Points.get(1).get(0) - this.Points.get(0).get(0), 2);
             double Y = Math.pow(this.Points.get(1).get(1) - this.Points.get(0).get(1), 2);
-            double x = Math.pow(this.Points.get(2).get(0) - this.Points.get(1).get(0), 2);
-            double y = Math.pow(this.Points.get(2).get(1) - this.Points.get(1).get(1), 2);
-            double square = Math.sqrt(X + Y) * Math.sqrt(x + y);
+            double square = Math.pow(Math.sqrt(X + Y), 2);
             System.out.printf("The figure area %.2f\n", square);
         }
     }
@@ -63,9 +59,7 @@ public class Rectangle extends Figyre{
         if (this.isFigureCorrect) {
             double X = Math.pow(this.Points.get(1).get(0) - this.Points.get(0).get(0), 2);
             double Y = Math.pow(this.Points.get(1).get(1) - this.Points.get(0).get(1), 2);
-            double x = Math.pow(this.Points.get(2).get(0) - this.Points.get(1).get(0), 2);
-            double y = Math.pow(this.Points.get(2).get(1) - this.Points.get(1).get(1), 2);
-            double perimeter = 2 * (Math.sqrt(X + Y) + Math.sqrt(x + y));
+            double perimeter = 4.0 * Math.sqrt(X + Y);
             System.out.printf("The figure perimeter %.2f\n", perimeter);
         }
     }

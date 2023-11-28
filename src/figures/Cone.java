@@ -1,7 +1,9 @@
+package figures;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cone extends Figyre{
+public class Cone extends Figyre {
     public ArrayList<List<Integer>> Points;
     public boolean isFigureCorrect = true;
 

@@ -1,7 +1,9 @@
+package figures;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Circle extends Figyre{
+public class Circle extends Figyre {
     public ArrayList<List<Integer>> Points;
     public boolean isFigureCorrect = true;
 

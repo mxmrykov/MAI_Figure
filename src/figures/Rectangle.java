@@ -1,15 +1,17 @@
+package figures;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Parallelogram extends Figyre{
+public class Rectangle extends Figyre {
     public ArrayList<List<Integer>> Points;
     public boolean isFigureCorrect = true;
 
-    public Parallelogram(ArrayList<List<Integer>> coordinates) {
+    public Rectangle(ArrayList<List<Integer>> coordinates) {
         this.Points = coordinates;
     }
 
-    private boolean isParallelogramCorrect() {
+    private boolean isRectangleCorrect() {
         double lastDist, curDist, added;
         double x = Math.pow(this.Points.get(1).get(0) - this.Points.get(0).get(0), 2);
         double y = Math.pow(this.Points.get(1).get(1) - this.Points.get(0).get(1), 2);
@@ -38,7 +40,7 @@ public class Parallelogram extends Figyre{
 
     @Override
     public void isCoordinatesCorrect() {
-        if (Points.size() != 4 || !isParallelogramCorrect()) {
+        if (Points.size() != 4 || !isRectangleCorrect()) {
             System.out.println("The figyre is invalid");
             this.isFigureCorrect = false;
         } else {
@@ -49,18 +51,11 @@ public class Parallelogram extends Figyre{
     @Override
     public void getArea() {
         if (this.isFigureCorrect) {
-            double firstVectorX = Points.get(1).get(0) - Points.get(0).get(0),
-                    firstVectorY = Points.get(1).get(1) - Points.get(0).get(1),
-                    secondVectorX = Points.get(2).get(0) - Points.get(1).get(0),
-                    secondVectorY = Points.get(2).get(1) - Points.get(1).get(1),
-                    chiclitel = Math.abs(firstVectorX * secondVectorX + firstVectorY * secondVectorY),
-                    znamenatel = Math.sqrt(Math.pow(firstVectorX, 2) + Math.pow(firstVectorY, 2))
-                            * Math.sqrt(Math.pow(secondVectorX, 2) + Math.pow(secondVectorY, 2));
             double X = Math.pow(this.Points.get(1).get(0) - this.Points.get(0).get(0), 2);
             double Y = Math.pow(this.Points.get(1).get(1) - this.Points.get(0).get(1), 2);
             double x = Math.pow(this.Points.get(2).get(0) - this.Points.get(1).get(0), 2);
             double y = Math.pow(this.Points.get(2).get(1) - this.Points.get(1).get(1), 2);
-            double square = Math.sqrt(X + Y) * Math.sqrt(x + y) * (chiclitel / znamenatel);
+            double square = Math.sqrt(X + Y) * Math.sqrt(x + y);
             System.out.printf("The figure area %.2f\n", square);
         }
     }

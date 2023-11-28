@@ -1,9 +1,7 @@
-import java.util.ArrayList;
-import java.util.List;
+package figures;
 
 public class Figyre {
     final static double PI = 3.141592;
-
     public void isCoordinatesCorrect() {
         System.out.println("The figure is figyre");
     }
