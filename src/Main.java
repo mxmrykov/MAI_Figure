@@ -110,6 +110,16 @@ public class Main {
                         cone.getArea();
                         cone.getPerimeter();
                     }
+                case "TRUNCATED_SPHERE":
+                    Coordinates = getCoordinates();
+                    if (Coordinates.size() != 3) {
+                        System.out.println("Please, retype");
+                    } else {
+                        TruncatedSphere truncatedSphere = new TruncatedSphere(Coordinates);
+                        truncatedSphere.isCoordinatesCorrect();
+                        truncatedSphere.getArea();
+                        truncatedSphere.getPerimeter();
+                    }
                 case "END":
                     flag = false;
                 default:
