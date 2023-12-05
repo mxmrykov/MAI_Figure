@@ -13,7 +13,7 @@ public class Polygon extends Figyre {
 
     private boolean isPolygonCorrect() {
         for (int i = 0; i < Points.size() - 1; ++i) {
-            if (Points.get(i) == Points.get(i + 1)) {
+            if (Points.get(i).equals(Points.get(i + 1))) {
                 return false;
             }
         }
@@ -22,7 +22,7 @@ public class Polygon extends Figyre {
 
     @Override
     public void isCoordinatesCorrect() {
-        if (!isPolygonCorrect()) {
+        if (!isPolygonCorrect() || Points.size() < 3) {
             System.out.println("The figyre is invalid");
             this.isFigureCorrect = false;
         } else {

@@ -13,7 +13,7 @@ public class Cone extends Figyre {
 
     @Override
     public void isCoordinatesCorrect() {
-        if (Points.size() != 3 || Points.get(0) == Points.get(1) || Points.get(2) == Points.get(0)) {
+        if (Points.size() != 3 || Points.get(0).equals(Points.get(1)) || Points.get(2).equals(Points.get(0))) {
             System.out.println("The figyre is invalid");
             this.isFigureCorrect = false;
         } else {
