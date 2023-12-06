@@ -11,13 +11,28 @@ public class Triangle extends Figyre {
         this.Points = coordinates;
     }
 
+    private boolean isBetween(List<Integer> point1, List<Integer> point2, List<Integer> currentPoint) {
+        int x1 = point1.get(0);
+        int y1 = point1.get(1);
+        int x2 = point2.get(0);
+        int y2 = point2.get(1);
+        int x = currentPoint.get(0);
+        int y = currentPoint.get(1);
+
+        return (x > Math.min(x1, x2) && x < Math.max(x1, x2) && y > Math.min(y1, y2) && y < Math.max(y1, y2));
+    }
+
     private boolean isTriangleCorrect() {
-        return Points.get(0) != Points.get(1) && Points.get(1) != Points.get(2) && Points.get(2) != Points.get(0);
+        boolean flagFirst, flagSecond, flagThird;
+        flagFirst = !isBetween(Points.get(1), Points.get(2), Points.get(0));
+        flagSecond = !isBetween(Points.get(0), Points.get(2), Points.get(1));
+        flagThird = !isBetween(Points.get(0), Points.get(2), Points.get(2));
+        return flagFirst && flagSecond && flagThird;
     }
 
     @Override
     public void isCoordinatesCorrect() {
-        if (Points.size() != 4 || !isTriangleCorrect()) {
+        if (Points.size() != 3 || !isTriangleCorrect()) {
             System.out.println("The figyre is invalid");
             this.isFigureCorrect = false;
         } else {

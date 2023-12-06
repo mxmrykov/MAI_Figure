@@ -14,7 +14,7 @@ public class TruncatedSphere extends Figyre {
 
     @Override
     public void isCoordinatesCorrect() {
-        if (Points.size() == 9 && Points.get(0).size() == 3) {
+        if (Points.size() == 3 && Points.get(0).size() == 3 && Points.get(1).size() == 3 && Points.get(2).size() == 3) {
             int vectorXFirst = Points.get(1).get(0) - Points.get(0).get(0),
                     vectorYFirst = Points.get(1).get(1) - Points.get(0).get(1),
                     vectorZFirst = Points.get(1).get(2) - Points.get(0).get(2),
@@ -26,9 +26,13 @@ public class TruncatedSphere extends Figyre {
             if (radius == height && radius > 0) {
                 System.out.println("The figyre is invalid");
                 isFigureCorrect = false;
+            } else {
+                System.out.println("The figure is valid");
             }
+        } else {
+            System.out.println("The figyre is invalid");
+            isFigureCorrect = false;
         }
-        System.out.println("The figure is valid");
     }
 
     @Override

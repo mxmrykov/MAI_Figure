@@ -13,7 +13,7 @@ public class Sphere extends Figyre {
 
     @Override
     public void isCoordinatesCorrect() {
-        if (Points.size() != 2 || Points.get(0) == Points.get(1)) {
+        if (Points.size() != 2 || Points.get(0).equals(Points.get(1))) {
             System.out.println("The figyre is invalid");
             this.isFigureCorrect = false;
         } else {
